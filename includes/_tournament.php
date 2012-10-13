@@ -14,21 +14,21 @@
 * @param  options         Array
 * --------------------
 * In progress - possibles
-* 				elimination
-* 				seeds
+*               elimination
+*               seeds
 *
 * @return object
 */
 abstract class _Tournament
 {
-	protected $_id = 0;
+    protected $_id = 0;
     protected $_name;
-	protected $_description;
-	protected $_numberOfPlayers;
-	protected $_options = array();
-	private   $_query;
+    protected $_description;
+    protected $_numberOfPlayers;
+    protected $_options = array();
+    private   $_query;
 
-	/**
+    /**
     * _create - Creates a record in the tournament table
     *
     * @return 
@@ -38,13 +38,13 @@ abstract class _Tournament
     {
         include('connect.php');
         $this->_query = "INSERT INTO `tournament`
-        	(`name`,`description`,`numberOfPlayers`,`options`)
-            VALUES (
-	                '{$this->name}',
-	            	'{$this->description}',
-	            	'{$this->numberOfPlayers}',
-	            	'{$this->options}'
-	            	)";
+        (`name`,`description`,`numberOfPlayers`,`options`)
+        VALUES (
+            '{$this->name}',
+            '{$this->description}',
+            '{$this->numberOfPlayers}',
+            '{$this->options}'
+        )";
 
         if ($mysqli->query($this->_query)) {
             return $mysqli->insert_id;
